@@ -1,0 +1,60 @@
+1.what is websphere ?
+WebSphere Application Server (WAS) is a Java application server developed by IBM. It is a software framework and middleware that provides an environment for building, deploying,
+and managing Java-based enterprise applications. WAS is a popular choice for enterprise applications because it is a mature and scalable platform that offers a wide range of features
+
+2.what is cell in websphere?
+a cell is a logical grouping of nodes that enables common administrative activities in a distributed environment. A cell is managed by a Deployment Manager, which is a process that
+provides a centralized view and control for all elements in the cell. 
+
+3.what is deployment manager in websphere?
+a deployment manager is a process that provides a single, central point of administrative control for all of the elements in a distributed cell.
+The deployment manager communicates with the application servers using a variety of protocols, including SOAP, HTTP, and IIOP.
+
+4.what is node in websphere?
+a node is a logical grouping of one or more application servers on a physical or virtual machine. Nodes are the basic building blocks of a WebSphere cell,
+and they are used to group application servers together for administrative purposes.
+>Starting and stopping application servers
+>Monitoring the health of application servers
+>Collecting and reporting statistics about application servers
+>Managing the configuration of application servers
+
+5.what is managed node and unmanaged node in websphere?
+Managed nodes: are controlled by a deployment manager, which is a centralized process that manages the configuration and operation of all nodes in a cell.
+Managed nodes are typically used in production environments where high availability and scalability are required.
+Stored in the deployment manager's configuration repository ,Monitored by the deployment manage ,Can be configured for high availability
+Unmanaged nodes: are not controlled by a deployment manager. They are typically used in development environments or for standalone applications.
+Unmanaged nodes can be configured using the command line or the WebSphere administration console and used in development mode.
+Not controlled by a deployment manager, configuration Stored on the node itself, Stored on the node itself
+
+6.what is standalone application in websphere application server?
+a standalone application is an application that is deployed to a single application server instance. This means that the application is not clustered, and
+it does not run on multiple servers. Standalone applications are typically used for small or simple applications that do not require high availability or scalability.
+
+7.what is node agent in websphere?
+A node agent in WebSphere Application Server is a software process that runs on each node in a cell and communicates with the deployment manager to manage the application servers on that node.
+Node agents are responsible for the following tasks: Monitoring the health of application servers ,Starting and stopping application servers ,Managing the configuration of application servers
+
+8.Differentiate between the node agent, node, and node group.?
+Node - node is basically the grouping of the processing of the server. This grouping is done logically and is well maintained by the Websphere tool.
+It also helps in controlling the operations and data configuration.  
+Node agent - each node consists of an agent that works side by side with the deployment manager and hence the administration process is managed by it.
+In short, the node agent acts as the mediator if both the deployment manager and notes.  
+Node group - This refers to the grouping of various nodes and has the same capability as that of nodes.  
+
+9.what is Dynamic cache?
+A dynamic cache is a type of cache that automatically updates its contents based on changes to the underlying data. This means that the cache is always up-to-date and does not need to
+be manually refreshed. Dynamic caches are often used in web applications to improve performance by reducing the number of times that data needs to be retrieved from the database.
+Dynamic caches work by storing a copy of frequently accessed data in memory. When a request is made for data that is already in the cache, the cached copy is returned to the user.
+This eliminates the need to retrieve the data from the database, which can be a time-consuming process.
+
+10.How does symmetrical and asymmetrical clustering work in the WebSphere? 
+Symmetrical clustering:is a deployment architecture where all servers in a cluster perform the same operations, including running application logic and providing administrative services.
+This means that there is no separation of concerns between the runtime servers and the administration servers. 
+Asymmetrical clustering: is a deployment architecture where application servers are called runtime servers and are used to run application logic. Administrative servers are used to
+provide administrative services, such as starting and stopping runtime servers, managing user accounts, and monitoring the health and performance of runtime servers
+
+11.What is the meaning of node sync?  
+The WebSphere application server or also known as the WAS provided by IBM is considered to be able to store all Thebes data and information regarding the configuration process. 
+It stores them in the repository provided by nodes which are known as the Master Repository. In order for the entire configuration to be stored or simply send to the server of
+the respective nodes while
+using the DMGR process, the nodes must be synced properly. It is basically communication between the master repository and the local repository and can be done only in one way.  
