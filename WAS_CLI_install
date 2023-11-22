@@ -1,0 +1,98 @@
+WAS Installation and FixPack on CLI
+
+1.unzip the  InstallationManager file execute the command 
+
+./installc -acceptLicense -installationDirectory /opt/IBM/InstallationManager/eclipse -sP
+
+2.unzip ND 
+
+3.go to the path 
+/opt/IBM/InstallationManager/eclipse/tools
+
+4.execute the command in tools
+ ./imcl listAvailablePackages -repositories /media/sf_Documents/WAS/repository.config
+
+5.
+./imcl install com.ibm.websphere.ND.v85_8.5.0.20120501_1108 -repositories /media/sf_Documents/WAS/repository.config -installationDirectory /opt/IBM/WebSphere/AppServer -acceptLicense -sP
+
+6.unzip the fixpack
+
+8.go to the path
+/opt/IBM/InstallationManager/eclipse/tools
+
+9.get the repository from unzip FixPack directory and execute the command in tools
+./imcl listAvailablePackages -repositories /media/sf_Documents/WAS_FX/repository.config
+
+10.add the ND repositorie.
+./imcl install com.ibm.websphere.ND.v85_8.5.5015.20190128_1828 -repositories /media/sf_Documents/WAS_FP/repository.config -installationDirectory /opt/IBM/WebSphere/AppServer -acceptLicense -sP
+
+Installation in user using CLI
+
+1.unzip the  InstallationManager file execute the command
+./userinstc -acceptLicense -installationDirectory /home/bandaru/IBM/InstallationManager/eclipse -sP
+
+2.unzip ND
+
+3.go to the path
+/opt/IBM/InstallationManager/eclipse/tools
+
+4.execute the command in tools
+ ./imcl listAvailablePackages -repositories /home/bandaru/ND/repository.config
+
+5.
+./imcl install com.ibm.websphere.ND.v85_8.5.0.20120501_1108 -repositories /media/sf_Documents/WAS/repository.config -installationDirectory /home/user/IBM/WebSphere/AppServer -acceptLicense -sP
+
+6.unzip the fixpack
+
+7.go to the path
+/opt/IBM/InstallationManager/eclipse/tools
+
+8.execute the command in tools.
+./imcl listAvailablePackages -repositories /home/bandaru/FX/repository.config
+
+9.get the repository from unzip FixPack directory and execute the command in tools
+ ./imcl install com.ibm.websphere.ND.v85_8.5.5015.20190128_1828 -repositories /home/bandaru/FX/repository.config -installationDirectory /home/bandaru/IBM/WebSphere/AppServer -acceptLicense -sP
+
+Creating of standalone(AppSer) profiles
+
+1.go to the path execute below command 
+/home/bandaru/IBM/WebSphere/AppServer/bin
+
+./manageprofiles.sh -create -profileName AppSer01 -templatePath /home/bandaru/IBM/WebSphere/AppServer/profileTemplates/default/ -enableAdminSecrity true -adminUserName wasadmin -adminPassword sarasu10 -hostName localhost
+
+2.then go to the path 
+/home/bandaru/IBM/WebSphere/AppServer/profiles/AppSer01/bin
+execute this command
+./startServer.sh server1
+
+3.hit on the browser with Administrative console port-->logs-->AboutThisProfile.txt file
+192.168.1.50:9060/admin
+
+Creating of dmgr profiles.
+
+1.go to the path execute below command
+/home/bandaru/IBM/WebSphere/AppServer/bin
+
+./manageprofiles.sh -create -profileName Dmgr01 -templatePath /home/bandaru/IBM/WebSphere/AppServer/profileTemplates/dmgr/ -enableAdminSecrity true -adminUserName wasadmin -adminPassword sarasu10 -hostName localhost
+
+2.then go to the path
+/home/bandaru/IBM/WebSphere/AppServer/profiles/Dmgr01/bin
+execute this command
+./startManager.sh
+
+3.hit on the browser with Administrative console port-->logs-->AboutThisProfile.txt file
+192.168.1.50:9060/admin
+
+federate Appser01 to Dmgr
+
+1.start Dmgr 
+./startManager.sh
+
+2.go to the AppSer path /home/bandaru/IBM/WebSphere/AppServer/profiles/AppSer01/bin
+execute 
+NOTE:give hostname and give SOAP connector port of Dmgr
+
+./addNode.sh localhost 8879
+
+3.Now start the server from same path.
+./startServer server1
