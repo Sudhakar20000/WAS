@@ -58,7 +58,7 @@ Creating of standalone(AppSer) profiles
 1.go to the path execute below command 
 /home/bandaru/IBM/WebSphere/AppServer/bin
 
-./manageprofiles.sh -create -profileName AppSer01 -templatePath /home/bandaru/IBM/WebSphere/AppServer/profileTemplates/default/ -enableAdminSecrity true -adminUserName wasadmin -adminPassword sarasu10 -hostName localhost
+./manageprofiles.sh -create -profileName AppSer01 -templatePath /home/bandaru/IBM/WebSphere/AppServer/profileTemplates/default/ -enableAdminSecurity true -adminUserName wasadmin -adminPassword sarasu10 -hostName localhost
 
 2.then go to the path 
 /home/bandaru/IBM/WebSphere/AppServer/profiles/AppSer01/bin
@@ -73,7 +73,7 @@ Creating of dmgr profiles.
 1.go to the path execute below command
 /home/bandaru/IBM/WebSphere/AppServer/bin
 
-./manageprofiles.sh -create -profileName Dmgr01 -templatePath /home/bandaru/IBM/WebSphere/AppServer/profileTemplates/dmgr/ -enableAdminSecrity true -adminUserName wasadmin -adminPassword sarasu10 -hostName localhost
+./manageprofiles.sh -create -profileName Dmgr01 -templatePath /home/bandaru/IBM/WebSphere/AppServer/profileTemplates/dmgr/ -enableAdminSecurity true -adminUserName wasadmin -adminPassword sarasu10 -hostName localhost
 
 2.then go to the path
 /home/bandaru/IBM/WebSphere/AppServer/profiles/Dmgr01/bin
