@@ -1,1 +1,59 @@
 https://www.slideshare.net/saxena_knp/ibm-websphere-application-server-types-of-profiles
+
+What is a Profile?
+A profile is a set of configuration files used to create application server runtimes. This set includes static product 
+files as well configuration files used to prepare and control runtime environment.
+
+Application Server Profile:
+This profile is used to create a standalone application server. The purpose of standalone server is to prepare a runtime
+environment which works independent to other application server instances and is managed independently using its own console. 
+Although, this server profile (node) later can be added to deployment manager to become part of bigger deployment, but normally 
+it is used to prepare standalone application deployment.When you create this profile, a default application server instance
+automatically gets created.
+
+Custom Profile
+This is the most used profile in WAS ND environments having large number of servers. This profile creates empty node and does not
+contains any console or application server. This is used to create bigger deployment containing large number of servers. You create
+multiple  custom profiles and federate those to deployment manager to prepare clusters of application servers to host your
+applications.You can view this profile as a node containing configuration files to create server runtime environments. As
+mentioned above these profiles do not contain any server or console so these must be added to deployment manager to prepare runtime
+environment. Although you can use command line WAS tools to create server instances for these profiles as well, but that is 
+hardly ever done and for such. requirements application server profile (described above) can be used.
+
+Management Profiles -
+There are 3 types of management profiles exist, for different management requirements.
+
+Deployment Manager Profile
+This is most used management profile. As mentioned in Custom Profile section, a custom profile must be added to deployment manager
+to setup bigger deployments containing multiple servers, and clusters.A deployment manager is a special server used to manage a
+complete cell. You use it when your deployment spans multiple nodes, servers and you need a single place to manage all components 
+and apply various features to all components or selective components of your deployment.A deployment manager profile is created as
+a first step in any big deployment containing multiple servers, and clusters. When you create a deployment manager profile a
+management server gets created. This server is used to manage different nodes federated to it. Also, when you add/federate a node 
+into deployment manager a special server called "node agent" is created at node which is being added, and is used by deployment
+manager to communicate and manage node and servers running on it.
+
+Administrative Agent Profile
+This profile is rarely used. Its purpose is to manage multiple standalone application servers residing within an OS from a single
+console. If you have multiple standalone application servers installed on a machine and want to manage and control all servers
+from a single console, you create this profile. The management is limited to the servers residing within same OS instance where 
+this profile is being created and limited to the functionality offered like you can start/stop servers from single console but
+can't deploy application to all or selected servers.
+
+Job Manager Profile
+This profile provides much higher management functionality. In deployments containing multiple standalone servers and multiple
+clusters, this profile can be used to manage all components using single console.Although, management features are limited to some
+set of commands which can be issued from the console as well creating schedule of jobs to manage servers, cluster, but it is very 
+useful in really bigger deployments spanning multiple deployment managers, and standalone servers.Following image shows a job 
+manager profile server used by administrator which manages individual standalone application server, admin agent which in turn 
+managing standalone application servers, as well this is also used to manage deployment manager which itself is managing other
+servers and/or clusters.
+
+Cell Profile (Deployment manager and a Federated application server)
+This profile is a combination of an application server and deployment manager. When you create this profile it creates a deployment
+manager and an application server in same host OS instance. Also application server is automatically federated to the deployment
+manager. Normally you create this profile for testing or evaluation of WAS ND features,though you can expand this by adding more
+nodes to its deployment manager which could be used for your production deployment
+
+
+
