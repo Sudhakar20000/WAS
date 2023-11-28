@@ -96,3 +96,43 @@ NOTE:give hostname and give SOAP connector port of Dmgr
 
 3.Now start the server from same path.
 ./startServer server1
+
+JMS
+
+1.First create BUS go to the 
+service integration -->BUS -->new-->Enter the name for your new bus -->next -->finish
+
+2.Click on the created bus and go to 
+bus members -->add -->Select server, cluster or WebSphere MQ server -->Select the type of message store -->next -->nproperties/portdef.props ext -->finish. And then review -->Synchronize changes with Node
+
+3.Create Queue connection factorie and Queues
+click on Resources -->JMS -->
+  1.Queue connection factories --> select scope (target server)-->new -->select Default messaging provider.
+  -->connection factories name
+  -->JNDI name
+  -->BUS name
+  -->OK
+  -->review -->SyncDmgr01hronize changes 
+2.Queue -->select scope (target server)-->new -->select Default messaging provider.
+  -->Queue name
+  -->JNDI name
+  -->BUS name
+  -->select Queue name (target)
+  -->OK
+  -->review -->Synchronize changes 
+
+To view of delivered messages
+ Buses > Bus1 > Destinations > _SYSTEM.Exception.Destination.wasNode06.S1-Bus1 > Queue points > _SYSTEM.Exception.Destination.wasNode06.S1-Bus1@wasNode06.S1-Bus1 > switch to the Runtime tab >Messages > 15D164E3D39CB9A4_500001 > Message body
+ NOTE:if the application is not hitting add server port in virtual hosts
+changes 
+Environment -->virtual hosts 
+-->click on default_host -->Host Aliases -->new-->give the server port -->ok -->review -->Synchronize changes
+
+Horizental cluster:
+1. creatr a custom node
+2. edit “vi /etc/hosts” add remort hostname and IP and do the same in remort mechane add our ip and hostname in remort mechane
+eg:192.168.1.22 was.eidikointernal.com was
+ 
+3.add the node with remort dmgr hostname and soap port.
+Ex:./addNode.sh remortHostName remortDmgrSoapPort
+ 
