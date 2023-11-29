@@ -1,5 +1,5 @@
-WAS Installation and FixPack on CLI
-
+WAS 8.5 Installation and FixPack 8.5.5.15 on CLI
+=================================================
 1.unzip the  InstallationManager file execute the command 
 
 ./installc -acceptLicense -installationDirectory /opt/IBM/InstallationManager/eclipse -sP
@@ -27,7 +27,7 @@ WAS Installation and FixPack on CLI
 ./imcl install com.ibm.websphere.ND.v85_8.5.5015.20190128_1828 -repositories /media/sf_Documents/WAS_FP/repository.config -installationDirectory /opt/IBM/WebSphere/AppServer -acceptLicense -sP
 
 Installation in user using CLI
-
+================================
 1.unzip the  InstallationManager file execute the command
 ./userinstc -acceptLicense -installationDirectory /home/bandaru/IBM/InstallationManager/eclipse -sP
 
@@ -54,7 +54,7 @@ Installation in user using CLI
  ./imcl install com.ibm.websphere.ND.v85_8.5.5015.20190128_1828 -repositories /home/bandaru/FX/repository.config -installationDirectory /home/bandaru/IBM/WebSphere/AppServer -acceptLicense -sP
 
 Creating of standalone(AppSer) profiles
-
+=======================================
 1.go to the path execute below command 
 /home/bandaru/IBM/WebSphere/AppServer/bin
 
@@ -69,7 +69,7 @@ execute this command
 192.168.1.50:9060/admin
 
 Creating of dmgr profiles.
-
+==========================
 1.go to the path execute below command
 /home/bandaru/IBM/WebSphere/AppServer/bin
 
@@ -84,7 +84,7 @@ execute this command
 192.168.1.50:9060/admin
 
 federate Appser01 to Dmgr
-
+=========================
 1.start Dmgr 
 ./startManager.sh
 
@@ -98,7 +98,7 @@ NOTE:give hostname and give SOAP connector port of Dmgr
 ./startServer server1
 
 JMS
-
+===
 1.First create BUS go to the 
 service integration -->BUS -->new-->Enter the name for your new bus -->next -->finish
 
@@ -129,10 +129,91 @@ Environment -->virtual hosts
 -->click on default_host -->Host Aliases -->new-->give the server port -->ok -->review -->Synchronize changes
 
 Horizental cluster:
+==================
 1. creatr a custom node
 2. edit “vi /etc/hosts” add remort hostname and IP and do the same in remort mechane add our ip and hostname in remort mechane
 eg:192.168.1.22 was.eidikointernal.com was
  
 3.add the node with remort dmgr hostname and soap port.
 Ex:./addNode.sh remortHostName remortDmgrSoapPort
+
+JDBC
+====
+JDBC with DB2:
+-------------
+1.Install db2 create a datadbse and connect to it with following command
+ db2start – to start db2
+ db2 create database eidiko – creating database (for createing of sample database run “db2sampl”)
+ db2 list db directory – listing the databases
+ db2 connect to eidiko – connecting to  database
+ NOTE:go to the path /opt/ibm/db2/V11.1/java/ and take  db2jcc.jar file to our was image .
+2.Go to console 
+Resources > JDBC > JDBC providers > select target and click on new
+                   Scope :select server
+                   Database type : db2
+                   Provider type  :DB2 Universal JDBC Driver provider
+                   Implementation type :Connection pool data source
+                   next
+Give the path of file db2jcc.jar taken from the db2 installed image. Ex:/home/was/
+For second  coloem give db2 installation parh ex:  /opt/ibm/db2/V11.1/
+next
+finish
+3.Create Alies for that go to Security > Global security >  Java Authentication and Authorization Service > J2C authentication data   > click on new
+                       Alies : apple
+                       User ID: db2inst1
+                        password:sarasu10
+                         ok ->review -->Synchronize changes.
+4.Now create the datasource click on Data Sources > select target and click on new
+                       Data source name :db2
+                       JNDI name :abc
+                        next
+                        Select an existing JDBC provider :DB2 Universal JDBC Driver provider
+                        next
+                        Driver type :4
+                        Database name :eidiko
+                        Server name :192.168.22.11(ip of db2 system)
+                         next
+                         give the
+                        Component-managed authentication alias :alies which you created
+                        Mapping-configuration alias: none
+                        Container-managed authentication alias : none
+                        next >finish > review -->Synchronize changes ->Test connection.
+
+
+JDBC WITH ORACLE:
+----------------
+1.Install oracle datadbse and connect to it with following command
+             lsnrctl start
+             sqlplus / as sysdba
+             startup;
+NOTE: go to the path /u01/app/oracle/product/19.0.0/dbhome_1/jdbc/lib/ and take  ojdbc8.jar file to our was image.
+  2.Go to console 
+Resources > JDBC > JDBC providers > select target and click on new
+                   Scope :select server            
+                   Database type : oracle
+                   Provider type  :Oracle JDBC Driver 
+                   Implementation type :Connection pool data source
+                   next
+Give the path of file ojdbc8.jar taken from the oracle installed image. Ex:/home/was/
+next
+finish
+3.Create Alies for that go to Security > Global security >  Java Authentication and Authorization Service > J2C authentication data   > click on new
+                       Alies : apple
+                       User ID: SYSTEM
+                        password:sarasu10
+                        ok ->review -->Synchronize changes.
+4.Now create the datasource click on Data Sources > select target and click on new
+                       Data source name :oracle
+                       JNDI name :abc
+                        next
+                        Select an existing JDBC provider:Oracle JDBC Driver 
+                        next
+                        URL:jdbc:oracle:thin:@//oracle_image_ip:1521/system
+                         next
+                         give the
+                        Component-managed authentication alias :alies which you created
+                        Mapping-configuration alias: none
+                        Container-managed authentication alias : none
+                        next >finish > review -->Synchronize changes ->Test connection.
+NOTE:For changing file paths go to  Environment ->WebSphere variables -> you can change the paths.
  
