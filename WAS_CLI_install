@@ -216,4 +216,41 @@ finish
                         Container-managed authentication alias : none
                         next >finish > review -->Synchronize changes ->Test connection.
 NOTE:For changing file paths go to  Environment ->WebSphere variables -> you can change the paths.
- 
+
+
+LDAP
+1.untar the apacheds-2.0.0.AM26.tar file
+   cd  apacheds-2.0.0.AM26
+   cd bin
+  ./apacheds.sh start
+  ./ apacheds.sh status
+2.Run the ApaceDirectoryStudio in local terminal
+ cd  ApaceDirectoryStudio
+ ./ApaceDirectoryStudio
+IN GUI give 
+  connection name:eidiko
+  Host name:192.168.1.22
+   port:10389  
+   Bind DN:uid=admin,ou=system
+   BindPassword=secret
+   finish
+3.In WAS console go to Security->Global security->click on configer (at down) ->
+and clickAdd repositories(LDAP,custem.etc)
+   select repositorie as LDAP repositorie
+   Driver type : custom
+   Primary host name : IP
+   Port : 10389
+   Bind distinguished name : uid=admin,ou=system
+    Bind password: secret
+    Apply -> review -->Synchronize changes
+    ok
+    It will again ask select repositorie now select 
+    Unique distiguished name of the base :ou=system
+    ok and review -->Synchronize changes
+    stop dmge and restart it
+LINK: https://www.youtube.com/watch?v=1g3zOX6o1dw
+NOTE:we can check the connection by click on LDAP Test Query 
+ 4 .now go to the Useres and Groups -> manage users -> if ldap is successfully you get admin user
+
+5.Assign roles to user click on    Useres and Groups-> Administrative user roles ->add ->selest role ->Search string :admin ->ok ->review -->Synchronize changes
+
