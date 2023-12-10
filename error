@@ -1,0 +1,22 @@
+1) You get page 403
+when you are not authorized to access the page . It is a security error
+
+2) You get page 404 error when the resources are not available.
+Example If your web servers are down 404- means file not found here generate and propagate plugin-cfg.xml file once
+
+3) You get Page 500 error when your JVM is down
+500- means internal server error (code error in .er file or connection error) mostlly you find this in webserver logs (access logs or error logs) or in jvm logs or http-plugin.
+NOTE:
+403 an 404 is http error.Means Webserver error.U should find the error in error.log and access.log file of the http server logs.500 error is the internal server error
+.It is the Websphere application server error.When the application is down,the application page is not displayed (network issue,configuration issue,application 
+mapping issue,port issue,thread hung issue,app to DB connection issue etc.).U can find the error from SystemOut.log,SystemErr.log in Websphere Application server.
+
+3.I am not able to open the Administrative console of websphere application server v8.5. The logs report Java Heap Space and Out of Memory errors.
+I have searched online and the suggestions are to increase the JVM heap size. But how should I accomplish that now, when even the admin console is not working for me ?
+In this situation you must bypass the administration console. If you want to do that just edit the configuration file for the server, i.e. edit the server.xml for that
+particular server, either the application server process or the deployment manager process depending on what process suffers from the memory problem.
+edit the following attributes:
+jvmEntries debugArgs="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=7777" debugMode="false" disableJIT="false" genericJvmArguments="-Xquickstart"
+runHProf="false" verboseModeClass="false" **initialHeapSize**="512" **maximumHeapSize**="1024" verboseModeGarbageCollection="false" verboseModeJNI="false" xmi:id=
+"JavaVirtualMachine_1183121908656"
+and restart server
