@@ -20,3 +20,20 @@ jvmEntries debugArgs="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,addr
 runHProf="false" verboseModeClass="false" **initialHeapSize**="512" **maximumHeapSize**="1024" verboseModeGarbageCollection="false" verboseModeJNI="false" xmi:id=
 "JavaVirtualMachine_1183121908656"
 and restart server
+
+4.how do we know a node is synchronous or not in websphere
+To know if a node is synchronized, in the WebSphere admin console, select System administration > Nodes. In this example, AppSrv01Node01 is out of sync. In this example,
+the node is synchronized. Be aware that if the dmgr cannot communicate with the node, a question mark icon will be displayed.
+
+5.What is the difference between synchronization and full synchronization in websphere
+With a full synchronization, all file will be synchronized. A full synchronization takes more time than a partial synchronization. In the WebSphere admin console,
+expand System administration.
+
+6.why we are synchronise in websphere application server.
+A node contains one or more WebSphere application servers. When a managed nodes is federated into the dmgr, the node needs to be synchronized with the master configuration
+so that the node is using the dmgr configuration.
+
+7.what is propagate plug-in in websphere
+you are sending the plugin-cfg. xml file from your WebSphere application server or dmgr to your IHS web server. 
+The web server plugin is used to create a communication channel between IBMs IHS web server and a WebSphere application server
+
