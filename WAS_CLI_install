@@ -254,3 +254,41 @@ NOTE:we can check the connection by click on LDAP Test Query
 
 5.Assign roles to user click on    Useres and Groups-> Administrative user roles ->add ->selest role ->Search string :admin ->ok ->review -->Synchronize changes
 
+Installation of IHS
+1.unzip  the files and start ./IBMIM and add repository.
+2.click on install and select
+     IBM HTTP Server for Webspher Application Server 
+     WebServer Plug-ins for IBM  Webspher Application  Server
+3.next and accept license next and install
+
+Confilger IHS with WAS
+1.create a webserver in GUI
+server types-> web servers -> new 
+             select node:
+              servername:web1
+               type: IBM HTTP Server
+               next
+               port :80 (for root) 8080(for user)
+               Web server installation location :/opt/IBM/HTTPServer (for root)
+                                                                    /home/user/IBM/HTTPServer(for user)
+               Plug-in installation location :/opt/IBM/WebSphere/Plugins (for root)
+                                                              /home/userIBM/WebSphere/Plugins(for user)
+              next and finish
+               review-> generate plugin ->propagate plugin
+
+2.Now go to the path /opt/IBM/HTTPServer/conf/ and eidit http.conf file add two lines in last
+   LoadModule was_ap22_module /opt/IBM/HTTPServer/modules/mod_was_ap22_http.so
+   WebspherePluginConfig /opt/IBM/WebSphere/Plugins/config/web1/plugin-cfg.xml
+NOTE:in web1 replace with your webserver
+
+4.Now go to the path /opt/IBM/HTTPServer/conf/ and eidit admin.conf file 
+line no 7 and last line of file : replace admin port as 8008
+line no 139 and 140 user and group : bandaru (for root install)
+
+3.go to the path /opt/IBM/HTTPServer/bin and run to check syntex is correct
+       ./apachectl -t    ->check syntex is correct
+        ./apachectl -k start ->to start http server
+        ./adminctl start ->to get ihs console Ex:ip:80
+
+4.start the webserver in gui
+      
