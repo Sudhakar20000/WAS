@@ -55,5 +55,36 @@ manager and an application server in same host OS instance. Also application ser
 manager. Normally you create this profile for testing or evaluation of WAS ND features,though you can expand this by adding more
 nodes to its deployment manager which could be used for your production deployment
 
+JVM:The Java Virtual Machine (JVM) is a software program that provides an execution environment for Java programs. It essentially
+acts as a translator, taking Java bytecode (a set of instructions specific to the Java language)and translating it into the 
+native instructions of the underlying hardware platform (e.g., x86, ARM) so that the program can run.
+JVM IN WEBSPHERE: In short, the JVM is an essential part of WebSphere Application Server. It is responsible for running Java applications,
+managing memory, and providing security. Without the JVM, WebSphere would not be able to function.
+
+SERVLET:
+A servlet is a Java program that extends the capabilities of a server, most commonly a web server. It acts as a mini-application that can
+handle requests and generate responses, typically for web applications. Here's a breakdown of what a servlet does:
+Functionality:
+Responds to requests: Servlets can handle various types of requests, including HTTP requests (e.g., GET, POST) and other protocols.
+Generates dynamic content: Based on the request, servlets can dynamically generate HTML, XML, or other formats of content.
+Interacts with resources: Servlets can access databases, files, and other resources on the server to process information and fulfill requests.
+Provides dynamic functionality: Servlets enable features like session management, user authentication, and form processing in web applications.
+
+JSP:it is a simple cobe which will execute on server side. java code embadded with html code.
+
+EJB: Enterprise JavaBeans, is a powerful technology used in WebSphere and other Java application servers to build robust and 
+scalable server-side applications. They act as the workhorses behind the scenes, encapsulating the core business logic and ensuring
+its efficient execution.
+Session Bean: Session bean contains business logic that can be invoked by local, remote or webservice client
+Message Driven Bean: Like Session Bean, it contains the business logic but it is invoked by passing message. 
+Entity Bean: It summarizes the state that can be remained in the database. It is deprecated. Now, it is replaced with JPA (Java Persistent API).
+
+WebSphere Application server Terminology
+1. Server: Its a execution environment for client request
+2.Application Servers: These are specials where we use to deploy the Java applications
+3. Node: Node is a physical machine where we use to create/manage applications servers
+4.Cell: Its a logical boundary where we use to maintain multiple nodes
+5. Profile: It is environment for Websphere applications server administration
+
 
 
