@@ -40,4 +40,6 @@ The web server plugin is used to create a communication channel between IBMs IHS
 8.java.lang.UnsatisfiedLinkError
 This error gets thrown when the JVM cannot find the appropriate native library that is required for WebSphere Application Server to start.
 A user is starting the server who does not have the right permissions to load native libraries
-9.
+
+9.handshake error
+when certificate  are not mached 
