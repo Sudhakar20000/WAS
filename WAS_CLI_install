@@ -335,7 +335,17 @@ ex: scp -r web2/ root@192.168.1.151:/opt/IBM/WebSphere/Plugins/config/
          ./htpasswd -b ../conf/admin.passwd wasadmin sarasu10
   
 DELETE OF PROFILE:
+stop the node
 go to the path /opt/IBM/WebSphere/AppServer/bin and execute
 ./manageprofiles.sh -delete -profileName node1
 ./manageprofiles.sh  -validateRegistry
 ./manageprofile.sh  -validateAndUpdateRegistry
+and then go to path /opt/IBM/WebSphere/AppServer/profiles/
+rm -rf node1
+
+BACKUP OF PROFILE
+stop the node
+./manageprofiles.sh  -backupProfile -profileName node1 -backupFile /opt/IBM/backup.zip(path to store the backup file)
+
+
+
