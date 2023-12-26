@@ -43,3 +43,13 @@ A user is starting the server who does not have the right permissions to load na
 
 9.handshake error
 when certificate  are not mached 
+10. if you are facing with this errors in starting apache and admin in user
+(13)Permission denied: make_sock: could not bind to address [::]:443
+(13)Permission denied: make_sock: could not bind to address 0.0.0.0:443
+and
+(98)Address already in use: make_sock: could not bind to address [::]:8080
+(98)Address already in use: make_sock: could not bind to address 0.0.0.0:8080
+use 
+sudo ./apachectl -k start
+sudo ./admin start
+
