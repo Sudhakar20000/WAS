@@ -350,5 +350,35 @@ BACKUP OF PROFILE
 stop the node
 ./manageprofiles.sh  -backupProfile -profileName node1 -backupFile /opt/IBM/backup.zip(path to store the backup file)
 
+LOG FILES:
+IHS: HTTPServer/logs
+access_log        admin_error.log  adminSocket    cgisock.4905  httpd.pid    siddport
+admin_access_log  admin.pid        cgisock.18606  error_log     postinstall
+WebSphere/Plugins/logs/webserver name
+http_plugin.log
+
+WAS LOGS:
+/home/bandaru/IBM/WebSphere/AppServer/logs/manageprofiles
+create.log  Custom01  Custom01_create.log  Dmgr01  Dmgr01_create.log  pmt.log
+/home/bandaru/IBM/WebSphere/AppServer/logs/postinstall
+fixpack  postinstallerConfigActions1702917061526.log  postinstall.log
+dmgr logs:
+/home/bandaru/IBM/WebSphere/AppServer/profiles/Dmgr01/logs/dmgr
+btrace.1  native_stderr.log  objects          SystemErr.log        SystemOut.log
+dmgr.pid  native_stdout.log  startServer.log  SystemErr.log.owner  SystemOut.log.owner
+node logs:
+/home/bandaru/IBM/WebSphere/AppServer/profiles/Custom01/logs
+AboutThisProfile.txt  addNode.log  ffdc  nodeagent  S1  web1  wsadminListener.out  wsadmin.traceout  wsadmin.valout
+nodeagent logs:
+/home/bandaru/IBM/WebSphere/AppServer/profiles/Custom01/logs/nodeagent
+btrace.1       native_stderr.log  nodeagent.pid  startServer.log  SystemErr.log.owner  SystemOut.log.owner
+monitor.state  native_stdout.log  objects        SystemErr.log    SystemOut.log
+server logs:
+/home/bandaru/IBM/WebSphere/AppServer/profiles/Custom01/logs/S1
+btrace.1           native_stdout.log  S1.pid         SystemErr.log.owner  SystemOut.log.owner
+native_stderr.log  objects            SystemErr.log  SystemOut.log
+main config file:
+/home/bandaru/IBM/WebSphere/AppServer/profiles/Dmgr01/config/cells/WASCell01/nodes/WASNode01
+serverindex.xml
 
 
