@@ -207,6 +207,9 @@ finish
                        JNDI name :abc
                         next
                         Select an existing JDBC provider:Oracle JDBC Driver 
+                        Implementation type :Connection pool data source
+                        next
+Give the path of file ojdbc8.jar taken from the oracle installed image. Ex:/home/was/
                         next
                         URL:jdbc:oracle:thin:@//oracle_image_ip:1521/system
                          next
