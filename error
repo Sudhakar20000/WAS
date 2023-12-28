@@ -53,3 +53,23 @@ use
 sudo ./apachectl -k start
 sudo ./admin start
 
+11.how to know cpu usage of process in linux
+top
+
+12.if the request is hitting to application where we can find it the request is sucess in ihs access log
+Look for the 200 status code, indicating a successful request.
+ex:127.0.0.1 - - [28/Dec/2023:22:54:00 +0530] "GET /index.html HTTP/1.1" 200 3245
+  10.10.10.1 - - [28/Dec/2023:22:55:12 +0530] "POST /submitForm HTTP/1.1" 200 452
+Analyze Log Entries for Failure Indicato
+5xx series codes (500, 502, 503, etc.) signal server-side errors.
+4xx series codes (404, 403, 401, etc.) indicate client-side errors or access issues.
+
+13.to see the heap size in cli file
+$WAS_HOME/profiles/<profile_name>/config/cells/<cell_name>/nodes/<node_name>/servers/<server_name>/server.xml
+ps -ef |grep server
+
+14.What is out of memory error on server?
+When the system attempts to use more than the allocated amount of memory, the application or 
+service can stop working
+
+16.
