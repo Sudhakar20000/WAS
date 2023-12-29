@@ -390,3 +390,14 @@ Troubleshooting-> Java dumps and cores
 synchronization of node:
 ./syncNode.sh hostname port
 
+HEAP  IN CLI:
+/home/bandaru/IBM/WebSphere/AppServer/profiles/Dmgr01/bin
+./wsadmin.sh
+set jvm [$AdminControl completeObjectName type=JVM,process=S1,*]
+$AdminControl invoke $jvm generateHeapDump
+
+THREAD DUMP IN CLI:
+kill -3 pid
+
+
+
