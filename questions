@@ -105,3 +105,27 @@ and manage a specific WebSphere component.
 Repository files play a crucial role in the installation and management of WebSphere environments. They provide a standardized and 
 organized way to distribute and install WebSphere components, simplifying the deployment and maintenance of complex WebSphere systems.
 
+
+18.The number of JVMs that start when a WebSphere server starts
+Two JVMs are typically launched:
+The first JVM is responsible for server launch and configuration actions.
+The second JVM is the main server process that hosts applications and services.
+Additional JVMs may be started for specific features or components:
+Deployment Manager for managing multiple nodes in a cell
+Node Agents for managing individual servers in a cell
+Other services or applications that require their own JVMs
+
+19.In WebSphere Application Server, cell discovery and node discovery ports 
+Cell Discovery Port:
+Purpose: Enables the Deployment Manager to discover and communicate with Node Agents within the cell.
+Default port: 7277
+Function:
+Node Agents listen on this port for incoming discovery requests from the Deployment Manager.
+The Deployment Manager broadcasts discovery probes on this port to locate Node Agents in the cell.
+Node Discovery Port (NODE_DISCOVERY_ADDRESS):
+
+Purpose: Enables Node Agents to discover and communicate with each other within the cell.
+Default port: 7272
+Function:
+Node Agents listen on this port for incoming communication from other Node Agents.
+Node Agents can exchange information about servers and resources within the cell.
