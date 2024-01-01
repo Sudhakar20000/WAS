@@ -72,4 +72,54 @@ ps -ef |grep server
 When the system attempts to use more than the allocated amount of memory, the application or 
 service can stop working
 
-16.
+16.503,404,401,402 errors in websphere
+503 - Service Unavailable
+
+Description: The server is currently unable to handle requests.
+Potential Causes:
+Server overload or resource exhaustion
+Application server down or unresponsive
+Network issues preventing communication
+Maintenance or configuration changes
+Troubleshooting Tips:
+Check server logs for error messages or resource usage spikes.
+Restart the application server or cluster.
+Verify network connectivity and firewalls.
+Review recent configuration changes.
+Implement load balancing or scaling if necessary.
+
+404 - Not Found
+
+Description: The requested resource could not be found.
+Potential Causes:
+Invalid URL or resource path
+Missing application or resource
+Incorrect configuration or deployment settings
+Troubleshooting Tips:
+Double-check the URL for typos or errors.
+Verify that the application or resource exists and is deployed correctly.
+Review configuration settings for URL mappings and virtual hosts.
+
+401 - Unauthorized
+
+Description: The user is not authorized to access the requested resource.
+Potential Causes:
+Invalid login credentials
+Missing or insufficient user permissions
+Security configuration issues
+Troubleshooting Tips:
+Ensure correct username and password are being used.
+Check user permissions and access control settings.
+Verify security configuration for authentication and authorization.
+
+402 - Payment Required
+
+Description: Payment is required to access the requested resource.
+Potential Causes:
+Missing or invalid payment information
+Subscription or license limitations
+Application logic requiring payment
+Troubleshooting Tips:
+Provide valid payment information if required.
+Check subscription or license status.
+Contact application vendor for payment-related issues.
