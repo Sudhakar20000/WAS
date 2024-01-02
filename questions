@@ -129,3 +129,13 @@ Default port: 7272
 Function:
 Node Agents listen on this port for incoming communication from other Node Agents.
 Node Agents can exchange information about servers and resources within the cell.
+
+20.Key Components of JMS:
+JMS Provider: Manages message delivery, queues, and topics.
+JMS Queue: A temporary storage area for messages, where senders place messages and receivers retrieve them.
+JMS Topic: A publish-subscribe mechanism where multiple subscribers can receive a single message.
+JMS Connection Factory: Creates connections to the JMS provider.
+JMS Connection: Represents a connection to the JMS provider.
+JMS Session: Creates message producers and consumers.
+JMS Message Producer: Sends messages to queues or topics.
+JMS Message Consumer: Receives messages from queues or topics.
