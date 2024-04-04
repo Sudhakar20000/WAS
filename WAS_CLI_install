@@ -97,6 +97,13 @@ NOTE:give hostname and give SOAP connector port of Dmgr
 3.Now start the server from same path.
 ./startServer server1
 
+4.removing node from dmgr
+./removeNode.sh -profileName Dmgr01
+
+5.sync node with dmgr
+./syncNode.sh hostname soapport
+
+
 JMS
 ===
 1.First create BUS go to the 
