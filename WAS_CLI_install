@@ -402,3 +402,19 @@ kill -3 pid
 SSL for ihs_v9:
 ./gskcapicmd -keydb -create -db ./key.kdb -pw sarasu10 -stash
 
+CREATION OF SCEMA
+run this commands in oracle db
+sqlplus / as sysdba
+create user sudhakar identified by sarasu10;
+alter session set "_oracle_script"=true;
+create user sudhakar identified by sarasu10;
+grant dba to sudhakar;
+commit;
+Creation of tables:
+after compleat run the command in AppServer/bin
+./sibDDLGenerator.sh -system oracle -schema sudhakar -database orcl -statementend ";" > sudhakar.sql
+ scp the file sudhakar.sql to oracledb path 
+/u01/app/oracle/product/19.0.0/dbhome_1/demo/schema
+then run command in oracledb
+sqlplus / as sysdba
+@/u01/app/oracle/product/19.0.0/dbhome_1/demo/schema/sudhakar.sql
