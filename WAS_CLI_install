@@ -437,3 +437,7 @@ run the command in AppServer/bin
 scp the file sudhakar.sql to db2db path 
 run this command in db2db
 db2 -tvf mavan.sql
+
+WSADMIN TOOL:
+============
+./wsadmin.sh  -conntype SOAP -host git -port 8879 -user wasadmin -password sarasu10 -f /home/bandaru/one.py
