@@ -441,3 +441,4 @@ db2 -tvf mavan.sql
 WSADMIN TOOL:
 ============
 ./wsadmin.sh  -conntype SOAP -host git -port 8879 -user wasadmin -password sarasu10 -f /home/bandaru/one.py
+NOTE: in one.py file in last write this line "AdminConfig.save()" to save
