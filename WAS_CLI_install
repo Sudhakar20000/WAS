@@ -418,6 +418,7 @@ alter session set "_oracle_script"=true;
 create user sudhakar identified by sarasu10;
 grant dba to sudhakar;
 commit;
+
 Creation of tables:
 ====================
 after compleat run the command in AppServer/bin
@@ -442,3 +443,13 @@ WSADMIN TOOL:
 ============
 ./wsadmin.sh  -conntype SOAP -host git -port 8879 -user wasadmin -password sarasu10 -f /home/bandaru/one.py
 NOTE: in one.py file in last write this line "AdminConfig.save()" to save
+
+INSTALLATION OF NGINX
+=====================
+sudo yum update ca-certificates
+wget https://nginx.org/keys/nginx_signing.key
+sudo rpm --import nginx_signing.key
+sudo yum install -y nginx
+systemctl start nginx
+
+
