@@ -450,6 +450,9 @@ sudo yum update ca-certificates
 wget https://nginx.org/keys/nginx_signing.key
 sudo rpm --import nginx_signing.key
 sudo yum install -y nginx
+log_path :/var/log/nginx
+access.log  error.log
+
 systemctl start nginx
 
 
