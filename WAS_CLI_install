@@ -1,5 +1,16 @@
 WAS 8.5 Installation and FixPack 8.5.5.15 on CLI
 =================================================
+required files
+==============
+agent.installer.linux.gtk.x86_64_1.8.9000.20180313_1417.zip
+WAS_ND_V8.5_1_OF_3.zip
+WAS_ND_V8.5_2_OF_3.zip
+WAS_ND_V8.5_3_OF_3.zip
+8.5.5-WS-WAS-FP015-part1.zip
+8.5.5-WS-WAS-FP015-part2.zip
+8.5.5-WS-WAS-FP015-part3.zip
+
+
 1.unzip the  InstallationManager file execute the command 
 
 ./installc -acceptLicense -installationDirectory /opt/IBM/InstallationManager/eclipse -sP
