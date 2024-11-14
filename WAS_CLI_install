@@ -467,3 +467,9 @@ access.log  error.log
 systemctl start nginx
 
 
+linux trouble shoot
+===================
+systemctl stop firewalld
+apt-get install openssh-server
+
+
